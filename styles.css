@@ -1,0 +1,177 @@
+:root {
+    --light-bg-color: #ffffff;
+    --light-text-color: #000000;
+    --dark-bg-color: #121212;
+    --dark-text-color: #e0e0e0;
+    --primary-color: #6a5acd;
+    --secondary-color: #4682b4;
+}
+
+body.light-mode {
+    background-color: var(--light-bg-color);
+    color: var(--light-text-color);
+}
+
+body.dark-mode {
+    background-color: var(--dark-bg-color);
+    color: var(--dark-text-color);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.theme-toggle-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 34px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--primary-color);
+    border-radius: 34px;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+input:checked + .slider {
+    background-color: var(--secondary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(46px);
+}
+
+.label-light, .label-dark {
+    font-size: 12px;
+    color: white;
+}
+
+.label-light {
+    margin-left: 8px;
+}
+
+.label-dark {
+    margin-right: 8px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.pricing-table {
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 15px;
+    border: 1px solid var(--primary-color);
+    text-align: center;
+}
+
+table th {
+    background-color: var(--primary-color);
+    color: var(--light-bg-color);
+}
+
+table tbody tr:nth-child(even) {
+    background-color: var(--secondary-color);
+    color: var(--light-bg-color);
+}
+
+.details h3 {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    margin-top: 20px;
+}
+
+.details p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    table th, table td {
+        font-size: 0.875rem;
+        padding: 10px;
+    }
+
+    .theme-switch {
+        width: 60px;
+        height: 24px;
+    }
+
+    .slider:before {
+        height: 20px;
+        width: 20px;
+        transform: translateX(36px);
+    }
+
+    .label-light, .label-dark {
+        font-size: 10px;
+    }
+}
